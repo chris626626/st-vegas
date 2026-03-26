@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ST Vegas Hotel & Casino</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e0c872;
+      --gold-dark: #a07c2a;
+      --dark: #0a0a12;
+      --dark-2: #12121f;
+      --dark-3: #1a1a2e;
+      --dark-card: #16162a;
+      --white: #ffffff;
+      --gray: #b0b0c0;
+      --red: #e74c3c;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background: var(--dark);
+      color: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(10,10,18,0.85) 0%, rgba(10,10,18,0.5) 50%, rgba(10,10,18,0.85) 100%),
+        url('https://www.st-entertainment.com/assets/img/hero-carousel/hero-carousel-1.jpg') center/cover no-repeat;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 2rem;
+    }
+
+    .hero-logo {
+      width: 200px;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 0 30px rgba(201,168,76,0.4));
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+    }
+
+    .hero h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2.5vw, 1.6rem);
+      letter-spacing: 0.5em;
+      color: var(--gray);
+      margin-top: 0.5rem;
+      font-weight: 400;
+    }
+
+    .hero .tagline {
+      font-size: 1.1rem;
+      color: var(--gold-light);
+      margin-top: 1.5rem;
+      letter-spacing: 0.2em;
+    }
+
+    .hero .subtitle {
+      font-size: 0.95rem;
+      color: var(--gray);
+      margin-top: 0.5rem;
+    }
+
+    .hero .cta-btn {
+      display: inline-block;
+      margin-top: 2.5rem;
+      padding: 1rem 3rem;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 1rem;
+      letter-spacing: 0.15em;
+      transition: all 0.3s;
+      border-radius: 2px;
+    }
+
+    .hero .cta-btn:hover {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      animation: bounce 2s infinite;
+    }
+
+    .scroll-indicator span {
+      display: block;
+      width: 24px;
+      height: 24px;
+      border-right: 2px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
+      transform: rotate(45deg);
+      opacity: 0.6;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(12px); }
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-title p {
+      color: var(--gray);
+      margin-top: 0.8rem;
+      font-size: 1.05rem;
+    }
+
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      margin: 1rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* ===== ABOUT ===== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-image {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about-text h3 {
+      font-size: 1.5rem;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+
+    .about-text p {
+      color: var(--gray);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    /* ===== VISION CARDS ===== */
+    .vision-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .vision-card {
+      background: var(--dark-card);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .vision-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--gold);
+      box-shadow: 0 12px 40px rgba(201,168,76,0.15);
+    }
+
+    .vision-card .icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 1rem;
+    }
+
+    .vision-card .icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .vision-card h4 {
+      color: var(--gold);
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .vision-card p {
+      color: var(--gray);
+      font-size: 0.88rem;
+    }
+
+    /* ===== WHY INSURANCE ===== */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .why-card {
+      background: linear-gradient(135deg, var(--dark-card), var(--dark-3));
+      border-radius: 12px;
+      padding: 2rem;
+      border-left: 4px solid var(--gold);
+      transition: all 0.3s;
+    }
+
+    .why-card:hover {
+      transform: translateX(6px);
+      box-shadow: 0 8px 30px rgba(201,168,76,0.1);
+    }
+
+    .why-card h4 {
+      color: var(--gold);
+      font-size: 1.15rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .why-card h4 img {
+      width: 28px;
+      height: 28px;
+    }
+
+    .why-card p {
+      color: var(--gray);
+      font-size: 0.92rem;
+    }
+
+    /* ===== WIN-WIN ===== */
+    .win-section {
+      background: linear-gradient(135deg, var(--dark-2), var(--dark-3));
+      border-radius: 20px;
+      padding: 4rem 2rem;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+
+    .win-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .win-card {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      border-radius: 16px;
+      background: rgba(201,168,76,0.05);
+      border: 1px solid rgba(201,168,76,0.15);
+      transition: all 0.3s;
+    }
+
+    .win-card:hover {
+      background: rgba(201,168,76,0.1);
+      border-color: var(--gold);
+    }
+
+    .win-card .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .win-card h4 {
+      font-size: 1.3rem;
+      color: var(--white);
+      margin: 0.8rem 0;
+    }
+
+    .win-card .icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 1rem;
+    }
+
+    .win-card .icon img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .win-card ul {
+      list-style: none;
+      color: var(--gray);
+      font-size: 0.92rem;
+    }
+
+    .win-card ul li { margin-top: 0.3rem; }
+
+    /* ===== FULL-WIDTH BANNER ===== */
+    .banner {
+      position: relative;
+      padding: 8rem 2rem;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(10,10,18,0.8), rgba(10,10,18,0.6)),
+        url('https://www.st-entertainment.com/assets/img/hero-carousel/hero-carousel-3.jpg') center/cover no-repeat;
+      z-index: 0;
+    }
+
+    .banner h2 {
+      position: relative;
+      z-index: 1;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ===== ADVANTAGE ===== */
+    .adv-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .adv-item {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--dark-card);
+      border-radius: 12px;
+      border: 1px solid rgba(201,168,76,0.1);
+    }
+
+    .adv-item h4 {
+      color: var(--gold);
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .adv-item p { color: var(--gray); font-size: 0.9rem; }
+
+    .mutual-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .mutual-card {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(201,168,76,0.02));
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 16px;
+    }
+
+    .mutual-card .icon { width: 48px; height: 48px; margin: 0 auto 1rem; }
+    .mutual-card .icon img { width: 100%; height: 100%; }
+    .mutual-card h4 { color: var(--gold); font-size: 1.15rem; margin-bottom: 0.5rem; }
+    .mutual-card p { color: var(--gray); font-size: 0.92rem; }
+
+    /* ===== TABLES ===== */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 2rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+    }
+
+    table thead th {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: var(--dark);
+      padding: 1rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    table thead th:first-child {
+      border-radius: 8px 0 0 0;
+    }
+
+    table thead th:last-child {
+      border-radius: 0 8px 0 0;
+    }
+
+    table tbody td {
+      padding: 0.85rem 1rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    table tbody tr:hover {
+      background: rgba(201,168,76,0.05);
+    }
+
+    table tbody tr:last-child td:first-child { border-radius: 0 0 0 8px; }
+    table tbody tr:last-child td:last-child { border-radius: 0 0 8px 0; }
+
+    .table-note {
+      text-align: right;
+      color: var(--gray);
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+
+    /* ===== BETTING FLOW ===== */
+    .bet-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 2.5rem 0;
+    }
+
+    .bet-step {
+      background: var(--dark-card);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      text-align: center;
+      min-width: 110px;
+      transition: all 0.3s;
+    }
+
+    .bet-step:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+
+    .bet-step .round {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+
+    .bet-step .amount {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .bet-step .unit {
+      font-size: 0.75rem;
+      color: var(--gray);
+    }
+
+    .bet-arrow {
+      font-size: 1.5rem;
+      color: var(--gold);
+    }
+
+    .bet-total {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .bet-total .total-amount {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--gold);
+    }
+
+    .bet-total .claim {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 2rem;
+      background: linear-gradient(135deg, var(--red), #c0392b);
+      color: white;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    /* ===== CASINO SECTION ===== */
+    .casino-section {
+      position: relative;
+      padding: 6rem 2rem;
+      overflow: hidden;
+    }
+
+    .casino-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(10,10,18,0.85), rgba(10,10,18,0.7)),
+        url('https://www.st-entertainment.com/assets/img/hero-carousel/hero-carousel-2.jpg') center/cover no-repeat;
+      z-index: 0;
+    }
+
+    .casino-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .casino-text h2 {
+      font-size: 2.2rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .casino-text h3 {
+      font-size: 1.2rem;
+      color: var(--gold-light);
+      margin-bottom: 1.2rem;
+    }
+
+    .casino-text p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.9;
+    }
+
+    .casino-img {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .casino-img img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ===== CLAIM METHOD ===== */
+    .claim-box {
+      background: linear-gradient(135deg, var(--dark-card), var(--dark-3));
+      border: 1px solid rgba(231,76,60,0.3);
+      border-radius: 16px;
+      padding: 3rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .claim-box .warning {
+      background: rgba(231,76,60,0.15);
+      border: 1px solid rgba(231,76,60,0.4);
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      color: var(--red);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+
+    .claim-box .steps {
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    .claim-box .steps p { margin-bottom: 0.8rem; }
+
+    .claim-box .highlight {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .claim-requirements {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .claim-req-item {
+      text-align: center;
+      padding: 1.5rem 2rem;
+      background: rgba(201,168,76,0.06);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 12px;
+    }
+
+    .claim-req-item h4 {
+      color: var(--gold);
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .claim-req-item .stars {
+      color: var(--gold);
+      font-size: 1.3rem;
+    }
+
+    .claim-box .danger {
+      text-align: center;
+      color: var(--red);
+      font-weight: 700;
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    /* ===== REFERRAL ===== */
+    .referral-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .referral-card {
+      background: var(--dark-card);
+      border-radius: 16px;
+      padding: 2.5rem;
+      border: 1px solid rgba(201,168,76,0.1);
+    }
+
+    .referral-card h3 {
+      color: var(--gold);
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .referral-card .desc {
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+      font-size: 0.92rem;
+    }
+
+    .referral-card table { min-width: auto; }
+
+    /* ===== EXAMPLE ===== */
+    .example-section {
+      background: linear-gradient(135deg, var(--dark-2), var(--dark-3));
+      border-radius: 20px;
+      padding: 3.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .example-scenario {
+      text-align: center;
+      color: var(--gray);
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .example-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .example-card {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .example-card h4 {
+      color: var(--gold);
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .example-card .formula {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .example-card .result {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--gold);
+    }
+
+    .example-card .note {
+      color: var(--gray);
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 4rem 2rem;
+      border-top: 1px solid rgba(201,168,76,0.15);
+      margin-top: 4rem;
+    }
+
+    footer .footer-logo {
+      width: 120px;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 0 20px rgba(201,168,76,0.3));
+    }
+
+    footer h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+    }
+
+    footer .footer-sub {
+      color: var(--gray);
+      letter-spacing: 0.3em;
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+    }
+
+    footer .footer-tagline {
+      color: var(--gold-light);
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      letter-spacing: 0.15em;
+    }
+
+    footer .copyright {
+      color: #555;
+      font-size: 0.8rem;
+      margin-top: 2rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .about-grid,
+      .casino-content,
+      .referral-grid,
+      .example-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .win-grid { grid-template-columns: 1fr; }
+      .adv-grid { grid-template-columns: repeat(2, 1fr); }
+      .mutual-grid { grid-template-columns: 1fr; }
+      .claim-requirements { flex-direction: column; align-items: center; }
+
+      .bet-flow {
+        flex-direction: column;
+      }
+
+      .bet-arrow {
+        transform: rotate(90deg);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .adv-grid { grid-template-columns: 1fr; }
+      .vision-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-content">
+      <img src="https://www.st-entertainment.com/assets/img/logo.png" alt="ST Vegas Logo" class="hero-logo">
+      <h1>ST VEGAS</h1>
+      <h2>HOTEL & CASINO</h2>
+      <p class="tagline">全球頂級認證和保險</p>
+      <p class="subtitle">Top Global Certifications and Insurance</p>
+      <a href="#about" class="cta-btn">讓我們一起創造並改變</a>
+    </div>
+    <div class="scroll-indicator"><span></span></div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <div class="section-title">
+      <h2>公司介紹</h2>
+      <p>我們的全球專家團隊確保您萬無一失</p>
+      <div class="divider"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="images/image3.jpg" alt="ST Vegas Casino">
+      </div>
+      <div class="about-text">
+        <h3>關於我們</h3>
+        <p>在尊博遊戲集團，我們的使命是為全球遊戲行業提供世界一流的保險、認證和專業服務，並以最高水準的獨立性和完整性來完成我們的使命。</p>
+        <p>我們的客戶是全球博彩監管機構、供應商和運營商。擁有印度博彩執照，並與香港博彩集團建立緊密合作夥伴關係。</p>
+        <p>我們致力於開發一個獨特的博彩遊戲平台，結合博彩、理財和保險的理念，提供客戶全方位的娛樂和資產增值體驗。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VISION ===== -->
+  <section id="vision">
+    <div class="section-title">
+      <h2>我們的願景</h2>
+      <p>成為娛樂行業的信任和穩定性的象徵，通過提供卓越的保險機制，確保您的萬無一失</p>
+      <div class="divider"></div>
+    </div>
+    <div class="vision-grid">
+      <div class="vision-card">
+        <div class="icon"><img src="images/image13.png" alt="穩健保障"></div>
+        <h4>穩健保障</h4>
+        <p>提供穩健保險解決方案，以玩家與平臺雙贏局勢。</p>
+      </div>
+      <div class="vision-card">
+        <div class="icon"><img src="images/image6.png" alt="戰略合作"></div>
+        <h4>戰略合作</h4>
+        <p>建立長期戰略合作關係，為合作夥伴提供可靠的風險管理方案。</p>
+      </div>
+      <div class="vision-card">
+        <div class="icon"><img src="images/image7.png" alt="創新升級"></div>
+        <h4>創新升級</h4>
+        <p>通過創新和技術升級，不斷提高我們的保險服務品質。</p>
+      </div>
+      <div class="vision-card">
+        <div class="icon"><img src="images/image8.png" alt="靈活適應"></div>
+        <h4>靈活適應</h4>
+        <p>提供靈活的保險計畫，以適應娛樂行業的快速變化和法規要求。</p>
+      </div>
+      <div class="vision-card">
+        <div class="icon"><img src="images/image9.png" alt="合規實踐"></div>
+        <h4>合規實踐</h4>
+        <p>始終致力於合規性和娛樂行業的最佳實踐。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY INSURANCE ===== -->
+  <section id="why">
+    <div class="section-title">
+      <h2>為什麼需要保險機制？</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <h4><img src="images/image10.png" alt="">制勝概率提升</h4>
+        <p>保險機制確保客戶的權益得到充分保護，專業以邏輯計算，讓客戶獲得更好的娛樂體驗。</p>
+      </div>
+      <div class="why-card">
+        <h4><img src="images/image7.png" alt="">市場競爭優勢</h4>
+        <p>保險機制可以在娛樂市場，為平臺與玩家提供額外的安全感，從而增加市場份額。</p>
+      </div>
+      <div class="why-card">
+        <h4><img src="images/image6.png" alt="">合作夥伴關係</h4>
+        <p>博彩公司和保險機構的合作可以建立強大的夥伴關係，增強業務的穩定性和長期可持續性。</p>
+      </div>
+      <div class="why-card">
+        <h4><img src="images/image11.png" alt="">品牌聲譽保障</h4>
+        <p>採用保險機制顯示了公司的負責任態度，增強了品牌聲譽，吸引了更多的客戶和合作夥伴。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WIN-WIN ===== -->
+  <div class="win-section">
+    <div class="section-title">
+      <h2>三方共贏，共同獲利！</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="win-grid">
+      <div class="win-card">
+        <div class="num">01</div>
+        <div class="icon"><img src="images/image16.png" alt=""></div>
+        <h4>保險公司</h4>
+        <ul><li>賺取保費</li></ul>
+      </div>
+      <div class="win-card">
+        <div class="num">02</div>
+        <div class="icon"><img src="images/image14.png" alt=""></div>
+        <h4>夥伴</h4>
+        <ul>
+          <li>天天投保必勝方程式</li>
+          <li>拓張市場</li>
+        </ul>
+      </div>
+      <div class="win-card">
+        <div class="num">03</div>
+        <div class="icon"><img src="images/image15.png" alt=""></div>
+        <h4>線上娛樂平臺</h4>
+        <ul>
+          <li>保障玩家利益</li>
+          <li>源源不絕的收入</li>
+          <li>獲得流量</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== BANNER ===== -->
+  <div class="banner">
+    <h2>每天只需贏一次</h2>
+  </div>
+
+  <!-- ===== INSURANCE ADVANTAGES ===== -->
+  <section id="advantages">
+    <div class="section-title">
+      <h2>保險優勢</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="adv-grid">
+      <div class="adv-item">
+        <h4>風雨無阻</h4>
+        <p>提供保障</p>
+      </div>
+      <div class="adv-item">
+        <h4>人人需要</h4>
+        <p>只賺不賠</p>
+      </div>
+      <div class="adv-item">
+        <h4>三方共贏</h4>
+        <p>模式</p>
+      </div>
+      <div class="adv-item">
+        <h4>互利模式</h4>
+        <p>持續增長</p>
+      </div>
+    </div>
+
+    <div class="section-title" style="margin-top: 2rem;">
+      <h2>互利模式</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="mutual-grid">
+      <div class="mutual-card">
+        <div class="icon"><img src="images/image16.png" alt=""></div>
+        <h4>保險公司</h4>
+        <p>提供保險保障</p>
+      </div>
+      <div class="mutual-card">
+        <div class="icon"><img src="images/image14.png" alt=""></div>
+        <h4>團隊夥伴</h4>
+        <p>穩定持續收入</p>
+      </div>
+      <div class="mutual-card">
+        <div class="icon"><img src="images/image15.png" alt=""></div>
+        <h4>實體娛樂城</h4>
+        <p>高質量引流</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BETTING MODEL ===== -->
+  <section id="betting">
+    <div class="section-title">
+      <h2>六轉乾坤投注模式</h2>
+      <p>全新快速收益專案</p>
+      <div class="divider"></div>
+    </div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>星級專案保單</th>
+            <th>第一輪</th>
+            <th>第二輪</th>
+            <th>第三輪</th>
+            <th>第四輪</th>
+            <th>第五輪</th>
+            <th>第六輪</th>
+            <th>合計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>10</td><td>10</td><td>20</td><td>40</td><td>80</td><td>160</td><td>320</td><td><strong>630</strong></td></tr>
+          <tr><td>50</td><td>50</td><td>100</td><td>200</td><td>400</td><td>800</td><td>1,600</td><td><strong>3,150</strong></td></tr>
+          <tr><td>100</td><td>100</td><td>200</td><td>400</td><td>800</td><td>1,600</td><td>3,200</td><td><strong>6,300</strong></td></tr>
+          <tr><td>200</td><td>200</td><td>400</td><td>800</td><td>1,600</td><td>3,200</td><td>6,400</td><td><strong>12,600</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== WEEKLY PROFIT ===== -->
+  <section id="profit">
+    <div class="section-title">
+      <h2>每週盈利收益比</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>星級專案保單</th>
+            <th>下注金額</th>
+            <th>單次收益</th>
+            <th>保費</th>
+            <th>淨收益</th>
+            <th>日均收益</th>
+            <th>保險次數</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>10</td><td>10</td><td>10</td><td>5</td><td>5</td><td>0.79%</td><td>30次</td></tr>
+          <tr><td>630</td><td>50</td><td>50</td><td>25</td><td>25</td><td>0.79%</td><td>30次</td></tr>
+          <tr><td>3,150</td><td>100</td><td>100</td><td>50</td><td>50</td><td>0.79%</td><td>30次</td></tr>
+          <tr><td>6,300</td><td>200</td><td>200</td><td>100</td><td>100</td><td>0.79%</td><td>30次</td></tr>
+          <tr><td>12,600</td><td>400</td><td>400</td><td>200</td><td>200</td><td>0.79%</td><td>30次</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note">單位 / USDT</p>
+  </section>
+
+  <!-- ===== BETTING FLOW ===== -->
+  <section id="bet-flow">
+    <div class="section-title">
+      <h2>六次隨心所欲押注法</h2>
+      <p>未截圖佐證將無法獲得任何理賠</p>
+      <div class="divider"></div>
+    </div>
+    <div class="bet-flow">
+      <div class="bet-step">
+        <div class="round">第一局</div>
+        <div class="amount">100</div>
+        <div class="unit">USDT</div>
+      </div>
+      <div class="bet-arrow">&rarr;</div>
+      <div class="bet-step">
+        <div class="round">第二局</div>
+        <div class="amount">200</div>
+        <div class="unit">USDT</div>
+      </div>
+      <div class="bet-arrow">&rarr;</div>
+      <div class="bet-step">
+        <div class="round">第三局</div>
+        <div class="amount">400</div>
+        <div class="unit">USDT</div>
+      </div>
+      <div class="bet-arrow">&rarr;</div>
+      <div class="bet-step">
+        <div class="round">第四局</div>
+        <div class="amount">800</div>
+        <div class="unit">USDT</div>
+      </div>
+      <div class="bet-arrow">&rarr;</div>
+      <div class="bet-step">
+        <div class="round">第五局</div>
+        <div class="amount">1,600</div>
+        <div class="unit">USDT</div>
+      </div>
+      <div class="bet-arrow">&rarr;</div>
+      <div class="bet-step">
+        <div class="round">第六局</div>
+        <div class="amount">3,200</div>
+        <div class="unit">USDT</div>
+      </div>
+    </div>
+    <div class="bet-total">
+      <div class="total-amount">合計：6,300 USDT</div>
+      <div class="claim">全部猜錯 &rarr; 保險理賠</div>
+    </div>
+  </section>
+
+  <!-- ===== CASINO ===== -->
+  <div class="casino-section">
+    <div class="casino-content">
+      <div class="casino-text">
+        <h2>多國合法實體娛樂城</h2>
+        <h3>真人百家樂即時下注</h3>
+        <p>連接合法大型娛樂城提供多元的遊戲、完善的顧客服務並致力於維護遊戲公正性，我們提供安全的線上支付平臺由專業人員為玩家提供派彩服務，所有投注均在結果確認後即時派彩，堅持以誠信為根本的快捷便利付款機制，建立公司與客戶之間的信用保證，未來娛樂城仍將持續努力並不斷創新來贏得大眾的喜愛!</p>
+      </div>
+      <div class="casino-img">
+        <img src="images/image17.jpg" alt="ST Vegas Casino">
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CLAIM METHOD ===== -->
+  <section id="claim">
+    <div class="section-title">
+      <h2>保險理賠方法</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="claim-box">
+      <div class="warning">未截圖佐證將無法獲得任何理賠</div>
+      <div class="steps">
+        <p>如連輸6關，需提交截圖申請</p>
+        <p class="highlight">&#9650; 輸最後一關（第六關）後，馬上截取明細畫面！</p>
+        <p>上傳的截圖畫面必須要有：</p>
+      </div>
+      <div class="claim-requirements">
+        <div class="claim-req-item">
+          <h4>遊戲時間</h4>
+          <div class="stars">&#9733; &#9733; &#9733;</div>
+        </div>
+        <div class="claim-req-item">
+          <h4>GAME SN</h4>
+          <div class="stars">&#9733; &#9733; &#9733;</div>
+        </div>
+      </div>
+      <p class="danger">否則將無法獲得理賠！！</p>
+    </div>
+  </section>
+
+  <!-- ===== REFERRAL ===== -->
+  <section id="referral">
+    <div class="section-title">
+      <h2>推薦獎金</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="referral-grid">
+      <div class="referral-card">
+        <h3>組織獎金</h3>
+        <p class="desc">可獲得客戶保費抽成</p>
+        <table>
+          <thead>
+            <tr><th>條件</th><th>保費百分比</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>直推1個有效帳戶</td><td>10%</td></tr>
+            <tr><td>直推2個有效帳戶</td><td>20%</td></tr>
+            <tr><td>直推3個有效帳戶</td><td>30%</td></tr>
+            <tr><td>直推4個有效帳戶</td><td>40%</td></tr>
+            <tr><td>直推5個有效帳戶</td><td>50%</td></tr>
+            <tr><td>直推6個有效帳戶</td><td>60%</td></tr>
+            <tr><td>直推7個有效帳戶</td><td>70%</td></tr>
+            <tr><td>直推8個有效帳戶</td><td>80%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="referral-card">
+        <h3>推薦獎金</h3>
+        <p class="desc">可獲得客戶入金抽成</p>
+        <table>
+          <thead>
+            <tr><th>星級專案保單</th><th>入金百分比</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>630</td><td>1%</td></tr>
+            <tr><td>3,150</td><td>5%</td></tr>
+            <tr><td>6,300</td><td>10%</td></tr>
+            <tr><td>12,600</td><td>15%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXAMPLE ===== -->
+  <section id="example">
+    <div class="section-title">
+      <h2>收益實例</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="example-section">
+      <div class="example-scenario">
+        若我加入 <strong>6,300</strong> 方案，閉鎖30次任務，並推薦3個 <strong>12,600</strong> 方案
+      </div>
+      <div class="example-grid">
+        <div class="example-card">
+          <h4>推薦獎金</h4>
+          <p class="formula">12,600 &times; 10% &times; 3個</p>
+          <div class="result">= 3,780 U</div>
+          <p class="note">（只拿一次）</p>
+        </div>
+        <div class="example-card">
+          <h4>組織獎金</h4>
+          <p class="formula">直推3個有效帳戶，可拿保費的30%</p>
+          <p class="formula">100 &times; 30% &times; 3個 = 90 U</p>
+          <div class="result">= 90 U / 日</div>
+          <p class="note">（每日領取）</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <img src="https://www.st-entertainment.com/assets/img/logo.png" alt="ST Vegas Logo" class="footer-logo">
+    <h3>ST VEGAS</h3>
+    <p class="footer-sub">HOTEL & CASINO</p>
+    <p class="footer-tagline">值得信賴的好夥伴</p>
+    <p class="copyright">&copy; 2025 ST Vegas Hotel & Casino. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
