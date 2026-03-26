@@ -31,6 +31,47 @@
       overflow-x: hidden;
     }
 
+    /* ===== LANGUAGE TOGGLE ===== */
+    .lang-toggle {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      z-index: 1000;
+      display: flex;
+      background: rgba(10,10,18,0.85);
+      border: 1px solid var(--gold);
+      border-radius: 30px;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .lang-toggle button {
+      padding: 0.5rem 1.2rem;
+      border: none;
+      background: transparent;
+      color: var(--gray);
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-weight: 500;
+    }
+
+    .lang-toggle button.active {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    /* i18n: hide/show by lang */
+    [data-lang-en] { display: none; }
+    [data-lang-zh] { display: block; }
+    span[data-lang-zh], a[data-lang-zh] { display: inline; }
+    span[data-lang-en], a[data-lang-en] { display: none; }
+
+    body.en [data-lang-en] { display: block; }
+    body.en span[data-lang-en], body.en a[data-lang-en] { display: inline; }
+    body.en [data-lang-zh] { display: none !important; }
+
     /* ===== HERO ===== */
     .hero {
       position: relative;
@@ -237,11 +278,7 @@
       margin: 0 auto 1rem;
     }
 
-    .vision-card .icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
+    .vision-card .icon img { width: 100%; height: 100%; object-fit: contain; }
 
     .vision-card h4 {
       color: var(--gold);
@@ -283,15 +320,8 @@
       gap: 0.6rem;
     }
 
-    .why-card h4 img {
-      width: 28px;
-      height: 28px;
-    }
-
-    .why-card p {
-      color: var(--gray);
-      font-size: 0.92rem;
-    }
+    .why-card h4 img { width: 28px; height: 28px; }
+    .why-card p { color: var(--gray); font-size: 0.92rem; }
 
     /* ===== WIN-WIN ===== */
     .win-section {
@@ -331,29 +361,10 @@
       line-height: 1;
     }
 
-    .win-card h4 {
-      font-size: 1.3rem;
-      color: var(--white);
-      margin: 0.8rem 0;
-    }
-
-    .win-card .icon {
-      width: 48px;
-      height: 48px;
-      margin: 0 auto 1rem;
-    }
-
-    .win-card .icon img {
-      width: 100%;
-      height: 100%;
-    }
-
-    .win-card ul {
-      list-style: none;
-      color: var(--gray);
-      font-size: 0.92rem;
-    }
-
+    .win-card h4 { font-size: 1.3rem; color: var(--white); margin: 0.8rem 0; }
+    .win-card .icon { width: 48px; height: 48px; margin: 0 auto 1rem; }
+    .win-card .icon img { width: 100%; height: 100%; }
+    .win-card ul { list-style: none; color: var(--gray); font-size: 0.92rem; }
     .win-card ul li { margin-top: 0.3rem; }
 
     /* ===== FULL-WIDTH BANNER ===== */
@@ -401,12 +412,7 @@
       border: 1px solid rgba(201,168,76,0.1);
     }
 
-    .adv-item h4 {
-      color: var(--gold);
-      font-size: 1.1rem;
-      margin-bottom: 0.4rem;
-    }
-
+    .adv-item h4 { color: var(--gold); font-size: 1.1rem; margin-bottom: 0.4rem; }
     .adv-item p { color: var(--gray); font-size: 0.9rem; }
 
     .mutual-grid {
@@ -430,10 +436,7 @@
     .mutual-card p { color: var(--gray); font-size: 0.92rem; }
 
     /* ===== TABLES ===== */
-    .table-wrapper {
-      overflow-x: auto;
-      margin: 2rem 0;
-    }
+    .table-wrapper { overflow-x: auto; margin: 2rem 0; }
 
     table {
       width: 100%;
@@ -450,13 +453,8 @@
       text-align: center;
     }
 
-    table thead th:first-child {
-      border-radius: 8px 0 0 0;
-    }
-
-    table thead th:last-child {
-      border-radius: 0 8px 0 0;
-    }
+    table thead th:first-child { border-radius: 8px 0 0 0; }
+    table thead th:last-child { border-radius: 0 8px 0 0; }
 
     table tbody td {
       padding: 0.85rem 1rem;
@@ -466,10 +464,7 @@
       font-size: 0.95rem;
     }
 
-    table tbody tr:hover {
-      background: rgba(201,168,76,0.05);
-    }
-
+    table tbody tr:hover { background: rgba(201,168,76,0.05); }
     table tbody tr:last-child td:first-child { border-radius: 0 0 0 8px; }
     table tbody tr:last-child td:last-child { border-radius: 0 0 8px 0; }
 
@@ -500,42 +495,14 @@
       transition: all 0.3s;
     }
 
-    .bet-step:hover {
-      border-color: var(--gold);
-      transform: translateY(-4px);
-    }
+    .bet-step:hover { border-color: var(--gold); transform: translateY(-4px); }
+    .bet-step .round { font-size: 0.8rem; color: var(--gray); }
+    .bet-step .amount { font-size: 1.5rem; font-weight: 700; color: var(--gold); }
+    .bet-step .unit { font-size: 0.75rem; color: var(--gray); }
+    .bet-arrow { font-size: 1.5rem; color: var(--gold); }
 
-    .bet-step .round {
-      font-size: 0.8rem;
-      color: var(--gray);
-    }
-
-    .bet-step .amount {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--gold);
-    }
-
-    .bet-step .unit {
-      font-size: 0.75rem;
-      color: var(--gray);
-    }
-
-    .bet-arrow {
-      font-size: 1.5rem;
-      color: var(--gold);
-    }
-
-    .bet-total {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .bet-total .total-amount {
-      font-size: 2.5rem;
-      font-weight: 900;
-      color: var(--gold);
-    }
+    .bet-total { text-align: center; margin-top: 2rem; }
+    .bet-total .total-amount { font-size: 2.5rem; font-weight: 900; color: var(--gold); }
 
     .bet-total .claim {
       display: inline-block;
@@ -576,23 +543,9 @@
       align-items: center;
     }
 
-    .casino-text h2 {
-      font-size: 2.2rem;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-
-    .casino-text h3 {
-      font-size: 1.2rem;
-      color: var(--gold-light);
-      margin-bottom: 1.2rem;
-    }
-
-    .casino-text p {
-      color: var(--gray);
-      font-size: 0.95rem;
-      line-height: 1.9;
-    }
+    .casino-text h2 { font-size: 2.2rem; color: var(--gold); margin-bottom: 1rem; }
+    .casino-text h3 { font-size: 1.2rem; color: var(--gold-light); margin-bottom: 1.2rem; }
+    .casino-text p { color: var(--gray); font-size: 0.95rem; line-height: 1.9; }
 
     .casino-img {
       border-radius: 12px;
@@ -600,10 +553,7 @@
       box-shadow: 0 20px 60px rgba(0,0,0,0.5);
     }
 
-    .casino-img img {
-      width: 100%;
-      display: block;
-    }
+    .casino-img img { width: 100%; display: block; }
 
     /* ===== CLAIM METHOD ===== */
     .claim-box {
@@ -627,17 +577,9 @@
       font-size: 1.05rem;
     }
 
-    .claim-box .steps {
-      color: var(--gray);
-      font-size: 0.95rem;
-    }
-
+    .claim-box .steps { color: var(--gray); font-size: 0.95rem; }
     .claim-box .steps p { margin-bottom: 0.8rem; }
-
-    .claim-box .highlight {
-      color: var(--gold);
-      font-weight: 700;
-    }
+    .claim-box .highlight { color: var(--gold); font-weight: 700; }
 
     .claim-requirements {
       display: flex;
@@ -654,16 +596,8 @@
       border-radius: 12px;
     }
 
-    .claim-req-item h4 {
-      color: var(--gold);
-      font-size: 1rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .claim-req-item .stars {
-      color: var(--gold);
-      font-size: 1.3rem;
-    }
+    .claim-req-item h4 { color: var(--gold); font-size: 1rem; margin-bottom: 0.3rem; }
+    .claim-req-item .stars { color: var(--gold); font-size: 1.3rem; }
 
     .claim-box .danger {
       text-align: center;
@@ -687,18 +621,8 @@
       border: 1px solid rgba(201,168,76,0.1);
     }
 
-    .referral-card h3 {
-      color: var(--gold);
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .referral-card .desc {
-      color: var(--gray);
-      margin-bottom: 1.5rem;
-      font-size: 0.92rem;
-    }
-
+    .referral-card h3 { color: var(--gold); font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .referral-card .desc { color: var(--gray); margin-bottom: 1.5rem; font-size: 0.92rem; }
     .referral-card table { min-width: auto; }
 
     /* ===== EXAMPLE ===== */
@@ -725,34 +649,11 @@
       gap: 3rem;
     }
 
-    .example-card {
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .example-card h4 {
-      color: var(--gold);
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-    }
-
-    .example-card .formula {
-      color: var(--gray);
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-    }
-
-    .example-card .result {
-      font-size: 2.5rem;
-      font-weight: 900;
-      color: var(--gold);
-    }
-
-    .example-card .note {
-      color: var(--gray);
-      font-size: 0.85rem;
-      margin-top: 0.5rem;
-    }
+    .example-card { text-align: center; padding: 2rem; }
+    .example-card h4 { color: var(--gold); font-size: 1.2rem; margin-bottom: 1rem; }
+    .example-card .formula { color: var(--gray); font-size: 0.95rem; margin-bottom: 1rem; }
+    .example-card .result { font-size: 2.5rem; font-weight: 900; color: var(--gold); }
+    .example-card .note { color: var(--gray); font-size: 0.85rem; margin-top: 0.5rem; }
 
     /* ===== FOOTER ===== */
     footer {
@@ -775,47 +676,19 @@
       letter-spacing: 0.1em;
     }
 
-    footer .footer-sub {
-      color: var(--gray);
-      letter-spacing: 0.3em;
-      font-size: 0.9rem;
-      margin-top: 0.3rem;
-    }
-
-    footer .footer-tagline {
-      color: var(--gold-light);
-      margin-top: 1.5rem;
-      font-size: 1.1rem;
-      letter-spacing: 0.15em;
-    }
-
-    footer .copyright {
-      color: #555;
-      font-size: 0.8rem;
-      margin-top: 2rem;
-    }
+    footer .footer-sub { color: var(--gray); letter-spacing: 0.3em; font-size: 0.9rem; margin-top: 0.3rem; }
+    footer .footer-tagline { color: var(--gold-light); margin-top: 1.5rem; font-size: 1.1rem; letter-spacing: 0.15em; }
+    footer .copyright { color: #555; font-size: 0.8rem; margin-top: 2rem; }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
-      .about-grid,
-      .casino-content,
-      .referral-grid,
-      .example-grid {
-        grid-template-columns: 1fr;
-      }
-
+      .about-grid, .casino-content, .referral-grid, .example-grid { grid-template-columns: 1fr; }
       .win-grid { grid-template-columns: 1fr; }
       .adv-grid { grid-template-columns: repeat(2, 1fr); }
       .mutual-grid { grid-template-columns: 1fr; }
       .claim-requirements { flex-direction: column; align-items: center; }
-
-      .bet-flow {
-        flex-direction: column;
-      }
-
-      .bet-arrow {
-        transform: rotate(90deg);
-      }
+      .bet-flow { flex-direction: column; }
+      .bet-arrow { transform: rotate(90deg); }
     }
 
     @media (max-width: 600px) {
@@ -826,15 +699,23 @@
 </head>
 <body>
 
+  <!-- ===== LANGUAGE TOGGLE ===== -->
+  <div class="lang-toggle">
+    <button id="btn-zh" class="active" onclick="setLang('zh')">中文</button>
+    <button id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+
   <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="hero-content">
       <img src="https://www.st-entertainment.com/assets/img/logo.png" alt="ST Vegas Logo" class="hero-logo">
       <h1>ST VEGAS</h1>
       <h2>HOTEL & CASINO</h2>
-      <p class="tagline">全球頂級認證和保險</p>
-      <p class="subtitle">Top Global Certifications and Insurance</p>
-      <a href="#about" class="cta-btn">讓我們一起創造並改變</a>
+      <p class="tagline" data-lang-zh>全球頂級認證和保險</p>
+      <p class="tagline" data-lang-en>Top Global Certifications and Insurance</p>
+      <p class="subtitle" data-lang-zh>Top Global Certifications and Insurance</p>
+      <a href="#about" class="cta-btn" data-lang-zh>讓我們一起創造並改變</a>
+      <a href="#about" class="cta-btn" data-lang-en>Let's Create and Transform Together</a>
     </div>
     <div class="scroll-indicator"><span></span></div>
   </section>
@@ -842,8 +723,10 @@
   <!-- ===== ABOUT ===== -->
   <section id="about">
     <div class="section-title">
-      <h2>公司介紹</h2>
-      <p>我們的全球專家團隊確保您萬無一失</p>
+      <h2 data-lang-zh>公司介紹</h2>
+      <h2 data-lang-en>About Us</h2>
+      <p data-lang-zh>我們的全球專家團隊確保您萬無一失</p>
+      <p data-lang-en>Our global team of experts ensures you're fully covered</p>
       <div class="divider"></div>
     </div>
     <div class="about-grid">
@@ -851,10 +734,18 @@
         <img src="images/image3.jpg" alt="ST Vegas Casino">
       </div>
       <div class="about-text">
-        <h3>關於我們</h3>
-        <p>在尊博遊戲集團，我們的使命是為全球遊戲行業提供世界一流的保險、認證和專業服務，並以最高水準的獨立性和完整性來完成我們的使命。</p>
-        <p>我們的客戶是全球博彩監管機構、供應商和運營商。擁有印度博彩執照，並與香港博彩集團建立緊密合作夥伴關係。</p>
-        <p>我們致力於開發一個獨特的博彩遊戲平台，結合博彩、理財和保險的理念，提供客戶全方位的娛樂和資產增值體驗。</p>
+        <h3 data-lang-zh>關於我們</h3>
+        <h3 data-lang-en>Who We Are</h3>
+        <div data-lang-zh>
+          <p>在尊博遊戲集團，我們的使命是為全球遊戲行業提供世界一流的保險、認證和專業服務，並以最高水準的獨立性和完整性來完成我們的使命。</p>
+          <p>我們的客戶是全球博彩監管機構、供應商和運營商。擁有印度博彩執照，並與香港博彩集團建立緊密合作夥伴關係。</p>
+          <p>我們致力於開發一個獨特的博彩遊戲平台，結合博彩、理財和保險的理念，提供客戶全方位的娛樂和資產增值體驗。</p>
+        </div>
+        <div data-lang-en>
+          <p>At ST Entertainment Group, our mission is to provide world-class insurance, certification, and professional services to the global gaming industry with the highest standards of independence and integrity.</p>
+          <p>Our clients include global gaming regulators, suppliers, and operators. We hold gaming licenses in India and have established close partnerships with Hong Kong gaming groups.</p>
+          <p>We are committed to developing a unique gaming platform that combines gaming, financial management, and insurance to provide customers with a comprehensive entertainment and asset appreciation experience.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -862,35 +753,47 @@
   <!-- ===== VISION ===== -->
   <section id="vision">
     <div class="section-title">
-      <h2>我們的願景</h2>
-      <p>成為娛樂行業的信任和穩定性的象徵，通過提供卓越的保險機制，確保您的萬無一失</p>
+      <h2 data-lang-zh>我們的願景</h2>
+      <h2 data-lang-en>Our Vision</h2>
+      <p data-lang-zh>成為娛樂行業的信任和穩定性的象徵，通過提供卓越的保險機制，確保您的萬無一失</p>
+      <p data-lang-en>To become a symbol of trust and stability in the entertainment industry through exceptional insurance mechanisms</p>
       <div class="divider"></div>
     </div>
     <div class="vision-grid">
       <div class="vision-card">
-        <div class="icon"><img src="images/image13.png" alt="穩健保障"></div>
-        <h4>穩健保障</h4>
-        <p>提供穩健保險解決方案，以玩家與平臺雙贏局勢。</p>
+        <div class="icon"><img src="images/image13.png" alt=""></div>
+        <h4 data-lang-zh>穩健保障</h4>
+        <h4 data-lang-en>Solid Protection</h4>
+        <p data-lang-zh>提供穩健保險解決方案，以玩家與平臺雙贏局勢。</p>
+        <p data-lang-en>Providing robust insurance solutions for a win-win between players and platforms.</p>
       </div>
       <div class="vision-card">
-        <div class="icon"><img src="images/image6.png" alt="戰略合作"></div>
-        <h4>戰略合作</h4>
-        <p>建立長期戰略合作關係，為合作夥伴提供可靠的風險管理方案。</p>
+        <div class="icon"><img src="images/image6.png" alt=""></div>
+        <h4 data-lang-zh>戰略合作</h4>
+        <h4 data-lang-en>Strategic Partnership</h4>
+        <p data-lang-zh>建立長期戰略合作關係，為合作夥伴提供可靠的風險管理方案。</p>
+        <p data-lang-en>Building long-term strategic partnerships with reliable risk management solutions.</p>
       </div>
       <div class="vision-card">
-        <div class="icon"><img src="images/image7.png" alt="創新升級"></div>
-        <h4>創新升級</h4>
-        <p>通過創新和技術升級，不斷提高我們的保險服務品質。</p>
+        <div class="icon"><img src="images/image7.png" alt=""></div>
+        <h4 data-lang-zh>創新升級</h4>
+        <h4 data-lang-en>Innovation & Upgrade</h4>
+        <p data-lang-zh>通過創新和技術升級，不斷提高我們的保險服務品質。</p>
+        <p data-lang-en>Continuously improving our insurance service quality through innovation and technology.</p>
       </div>
       <div class="vision-card">
-        <div class="icon"><img src="images/image8.png" alt="靈活適應"></div>
-        <h4>靈活適應</h4>
-        <p>提供靈活的保險計畫，以適應娛樂行業的快速變化和法規要求。</p>
+        <div class="icon"><img src="images/image8.png" alt=""></div>
+        <h4 data-lang-zh>靈活適應</h4>
+        <h4 data-lang-en>Flexible Adaptation</h4>
+        <p data-lang-zh>提供靈活的保險計畫，以適應娛樂行業的快速變化和法規要求。</p>
+        <p data-lang-en>Offering flexible insurance plans that adapt to rapid industry changes and regulations.</p>
       </div>
       <div class="vision-card">
-        <div class="icon"><img src="images/image9.png" alt="合規實踐"></div>
-        <h4>合規實踐</h4>
-        <p>始終致力於合規性和娛樂行業的最佳實踐。</p>
+        <div class="icon"><img src="images/image9.png" alt=""></div>
+        <h4 data-lang-zh>合規實踐</h4>
+        <h4 data-lang-en>Compliance</h4>
+        <p data-lang-zh>始終致力於合規性和娛樂行業的最佳實踐。</p>
+        <p data-lang-en>Always committed to compliance and industry best practices.</p>
       </div>
     </div>
   </section>
@@ -898,25 +801,30 @@
   <!-- ===== WHY INSURANCE ===== -->
   <section id="why">
     <div class="section-title">
-      <h2>為什麼需要保險機制？</h2>
+      <h2 data-lang-zh>為什麼需要保險機制？</h2>
+      <h2 data-lang-en>Why Insurance Mechanism?</h2>
       <div class="divider"></div>
     </div>
     <div class="why-grid">
       <div class="why-card">
-        <h4><img src="images/image10.png" alt="">制勝概率提升</h4>
-        <p>保險機制確保客戶的權益得到充分保護，專業以邏輯計算，讓客戶獲得更好的娛樂體驗。</p>
+        <h4><img src="images/image10.png" alt=""><span data-lang-zh>制勝概率提升</span><span data-lang-en>Higher Winning Odds</span></h4>
+        <p data-lang-zh>保險機制確保客戶的權益得到充分保護，專業以邏輯計算，讓客戶獲得更好的娛樂體驗。</p>
+        <p data-lang-en>The insurance mechanism ensures full protection of customer rights through professional calculation, delivering a better entertainment experience.</p>
       </div>
       <div class="why-card">
-        <h4><img src="images/image7.png" alt="">市場競爭優勢</h4>
-        <p>保險機制可以在娛樂市場，為平臺與玩家提供額外的安全感，從而增加市場份額。</p>
+        <h4><img src="images/image7.png" alt=""><span data-lang-zh>市場競爭優勢</span><span data-lang-en>Competitive Edge</span></h4>
+        <p data-lang-zh>保險機制可以在娛樂市場，為平臺與玩家提供額外的安全感，從而增加市場份額。</p>
+        <p data-lang-en>The insurance mechanism provides extra security for platforms and players, increasing market share.</p>
       </div>
       <div class="why-card">
-        <h4><img src="images/image6.png" alt="">合作夥伴關係</h4>
-        <p>博彩公司和保險機構的合作可以建立強大的夥伴關係，增強業務的穩定性和長期可持續性。</p>
+        <h4><img src="images/image6.png" alt=""><span data-lang-zh>合作夥伴關係</span><span data-lang-en>Strong Partnerships</span></h4>
+        <p data-lang-zh>博彩公司和保險機構的合作可以建立強大的夥伴關係，增強業務的穩定性和長期可持續性。</p>
+        <p data-lang-en>Collaboration between gaming companies and insurers builds powerful partnerships, enhancing business stability and sustainability.</p>
       </div>
       <div class="why-card">
-        <h4><img src="images/image11.png" alt="">品牌聲譽保障</h4>
-        <p>採用保險機制顯示了公司的負責任態度，增強了品牌聲譽，吸引了更多的客戶和合作夥伴。</p>
+        <h4><img src="images/image11.png" alt=""><span data-lang-zh>品牌聲譽保障</span><span data-lang-en>Brand Reputation</span></h4>
+        <p data-lang-zh>採用保險機制顯示了公司的負責任態度，增強了品牌聲譽，吸引了更多的客戶和合作夥伴。</p>
+        <p data-lang-en>Adopting insurance mechanisms demonstrates responsibility, strengthening brand reputation and attracting more clients and partners.</p>
       </div>
     </div>
   </section>
@@ -924,33 +832,49 @@
   <!-- ===== WIN-WIN ===== -->
   <div class="win-section">
     <div class="section-title">
-      <h2>三方共贏，共同獲利！</h2>
+      <h2 data-lang-zh>三方共贏，共同獲利！</h2>
+      <h2 data-lang-en>Triple Win, Shared Profits!</h2>
       <div class="divider"></div>
     </div>
     <div class="win-grid">
       <div class="win-card">
         <div class="num">01</div>
         <div class="icon"><img src="images/image16.png" alt=""></div>
-        <h4>保險公司</h4>
-        <ul><li>賺取保費</li></ul>
+        <h4 data-lang-zh>保險公司</h4>
+        <h4 data-lang-en>Insurer</h4>
+        <ul>
+          <li data-lang-zh>賺取保費</li>
+          <li data-lang-en>Earn premiums</li>
+        </ul>
       </div>
       <div class="win-card">
         <div class="num">02</div>
         <div class="icon"><img src="images/image14.png" alt=""></div>
-        <h4>夥伴</h4>
-        <ul>
+        <h4 data-lang-zh>夥伴</h4>
+        <h4 data-lang-en>Partners</h4>
+        <ul data-lang-zh>
           <li>天天投保必勝方程式</li>
           <li>拓張市場</li>
+        </ul>
+        <ul data-lang-en>
+          <li>Daily winning formula</li>
+          <li>Market expansion</li>
         </ul>
       </div>
       <div class="win-card">
         <div class="num">03</div>
         <div class="icon"><img src="images/image15.png" alt=""></div>
-        <h4>線上娛樂平臺</h4>
-        <ul>
+        <h4 data-lang-zh>線上娛樂平臺</h4>
+        <h4 data-lang-en>Online Platform</h4>
+        <ul data-lang-zh>
           <li>保障玩家利益</li>
           <li>源源不絕的收入</li>
           <li>獲得流量</li>
+        </ul>
+        <ul data-lang-en>
+          <li>Protect player interests</li>
+          <li>Continuous revenue stream</li>
+          <li>Gain traffic</li>
         </ul>
       </div>
     </div>
@@ -958,53 +882,70 @@
 
   <!-- ===== BANNER ===== -->
   <div class="banner">
-    <h2>每天只需贏一次</h2>
+    <h2 data-lang-zh>每天只需贏一次</h2>
+    <h2 data-lang-en>You Only Need to Win Once a Day</h2>
   </div>
 
   <!-- ===== INSURANCE ADVANTAGES ===== -->
   <section id="advantages">
     <div class="section-title">
-      <h2>保險優勢</h2>
+      <h2 data-lang-zh>保險優勢</h2>
+      <h2 data-lang-en>Insurance Advantages</h2>
       <div class="divider"></div>
     </div>
     <div class="adv-grid">
       <div class="adv-item">
-        <h4>風雨無阻</h4>
-        <p>提供保障</p>
+        <h4 data-lang-zh>風雨無阻</h4>
+        <h4 data-lang-en>Rain or Shine</h4>
+        <p data-lang-zh>提供保障</p>
+        <p data-lang-en>Full coverage</p>
       </div>
       <div class="adv-item">
-        <h4>人人需要</h4>
-        <p>只賺不賠</p>
+        <h4 data-lang-zh>人人需要</h4>
+        <h4 data-lang-en>Everyone Needs</h4>
+        <p data-lang-zh>只賺不賠</p>
+        <p data-lang-en>All profit, no loss</p>
       </div>
       <div class="adv-item">
-        <h4>三方共贏</h4>
-        <p>模式</p>
+        <h4 data-lang-zh>三方共贏</h4>
+        <h4 data-lang-en>Triple Win</h4>
+        <p data-lang-zh>模式</p>
+        <p data-lang-en>Model</p>
       </div>
       <div class="adv-item">
-        <h4>互利模式</h4>
-        <p>持續增長</p>
+        <h4 data-lang-zh>互利模式</h4>
+        <h4 data-lang-en>Mutual Benefit</h4>
+        <p data-lang-zh>持續增長</p>
+        <p data-lang-en>Sustainable growth</p>
       </div>
     </div>
 
     <div class="section-title" style="margin-top: 2rem;">
-      <h2>互利模式</h2>
+      <h2 data-lang-zh>互利模式</h2>
+      <h2 data-lang-en>Mutual Benefit Model</h2>
       <div class="divider"></div>
     </div>
     <div class="mutual-grid">
       <div class="mutual-card">
         <div class="icon"><img src="images/image16.png" alt=""></div>
-        <h4>保險公司</h4>
-        <p>提供保險保障</p>
+        <h4 data-lang-zh>保險公司</h4>
+        <h4 data-lang-en>Insurer</h4>
+        <p data-lang-zh>提供保險保障</p>
+        <p data-lang-en>Provide insurance coverage</p>
       </div>
       <div class="mutual-card">
         <div class="icon"><img src="images/image14.png" alt=""></div>
-        <h4>團隊夥伴</h4>
-        <p>穩定持續收入</p>
+        <h4 data-lang-zh>團隊夥伴</h4>
+        <h4 data-lang-en>Team Partners</h4>
+        <p data-lang-zh>穩定持續收入</p>
+        <p data-lang-en>Stable continuous income</p>
       </div>
       <div class="mutual-card">
         <div class="icon"><img src="images/image15.png" alt=""></div>
-        <h4>實體娛樂城</h4>
-        <p>高質量引流</p>
+        <h4 data-lang-zh>實體娛樂城</h4>
+        <h4 data-lang-en>Physical Casino</h4>
+        <p data-lang-zh>高質量引流</p>
+        <p data-lang-en>High-quality traffic</p>
       </div>
     </div>
   </section>
@@ -1012,23 +953,29 @@
   <!-- ===== BETTING MODEL ===== -->
   <section id="betting">
     <div class="section-title">
-      <h2>六轉乾坤投注模式</h2>
-      <p>全新快速收益專案</p>
+      <h2 data-lang-zh>六轉乾坤投注模式</h2>
+      <h2 data-lang-en>Six-Round Betting Model</h2>
+      <p data-lang-zh>全新快速收益專案</p>
+      <p data-lang-en>A brand-new rapid profit program</p>
       <div class="divider"></div>
     </div>
-    <div class="table-wrapper">
+    <div class="table-wrapper" data-lang-zh>
       <table>
         <thead>
-          <tr>
-            <th>星級專案保單</th>
-            <th>第一輪</th>
-            <th>第二輪</th>
-            <th>第三輪</th>
-            <th>第四輪</th>
-            <th>第五輪</th>
-            <th>第六輪</th>
-            <th>合計</th>
-          </tr>
+          <tr><th>星級專案保單</th><th>第一輪</th><th>第二輪</th><th>第三輪</th><th>第四輪</th><th>第五輪</th><th>第六輪</th><th>合計</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>10</td><td>10</td><td>20</td><td>40</td><td>80</td><td>160</td><td>320</td><td><strong>630</strong></td></tr>
+          <tr><td>50</td><td>50</td><td>100</td><td>200</td><td>400</td><td>800</td><td>1,600</td><td><strong>3,150</strong></td></tr>
+          <tr><td>100</td><td>100</td><td>200</td><td>400</td><td>800</td><td>1,600</td><td>3,200</td><td><strong>6,300</strong></td></tr>
+          <tr><td>200</td><td>200</td><td>400</td><td>800</td><td>1,600</td><td>3,200</td><td>6,400</td><td><strong>12,600</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-wrapper" data-lang-en>
+      <table>
+        <thead>
+          <tr><th>Star Plan</th><th>Round 1</th><th>Round 2</th><th>Round 3</th><th>Round 4</th><th>Round 5</th><th>Round 6</th><th>Total</th></tr>
         </thead>
         <tbody>
           <tr><td>10</td><td>10</td><td>20</td><td>40</td><td>80</td><td>160</td><td>320</td><td><strong>630</strong></td></tr>
@@ -1043,21 +990,14 @@
   <!-- ===== WEEKLY PROFIT ===== -->
   <section id="profit">
     <div class="section-title">
-      <h2>每週盈利收益比</h2>
+      <h2 data-lang-zh>每週盈利收益比</h2>
+      <h2 data-lang-en>Weekly Profit Ratio</h2>
       <div class="divider"></div>
     </div>
-    <div class="table-wrapper">
+    <div class="table-wrapper" data-lang-zh>
       <table>
         <thead>
-          <tr>
-            <th>星級專案保單</th>
-            <th>下注金額</th>
-            <th>單次收益</th>
-            <th>保費</th>
-            <th>淨收益</th>
-            <th>日均收益</th>
-            <th>保險次數</th>
-          </tr>
+          <tr><th>星級專案保單</th><th>下注金額</th><th>單次收益</th><th>保費</th><th>淨收益</th><th>日均收益</th><th>保險次數</th></tr>
         </thead>
         <tbody>
           <tr><td>10</td><td>10</td><td>10</td><td>5</td><td>5</td><td>0.79%</td><td>30次</td></tr>
@@ -1068,56 +1008,75 @@
         </tbody>
       </table>
     </div>
-    <p class="table-note">單位 / USDT</p>
+    <div class="table-wrapper" data-lang-en>
+      <table>
+        <thead>
+          <tr><th>Star Plan</th><th>Bet Amount</th><th>Per Win</th><th>Premium</th><th>Net Profit</th><th>Daily Yield</th><th>Insurance Rounds</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>10</td><td>10</td><td>10</td><td>5</td><td>5</td><td>0.79%</td><td>30x</td></tr>
+          <tr><td>630</td><td>50</td><td>50</td><td>25</td><td>25</td><td>0.79%</td><td>30x</td></tr>
+          <tr><td>3,150</td><td>100</td><td>100</td><td>50</td><td>50</td><td>0.79%</td><td>30x</td></tr>
+          <tr><td>6,300</td><td>200</td><td>200</td><td>100</td><td>100</td><td>0.79%</td><td>30x</td></tr>
+          <tr><td>12,600</td><td>400</td><td>400</td><td>200</td><td>200</td><td>0.79%</td><td>30x</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note" data-lang-zh>單位 / USDT</p>
+    <p class="table-note" data-lang-en>Unit / USDT</p>
   </section>
 
   <!-- ===== BETTING FLOW ===== -->
   <section id="bet-flow">
     <div class="section-title">
-      <h2>六次隨心所欲押注法</h2>
-      <p>未截圖佐證將無法獲得任何理賠</p>
+      <h2 data-lang-zh>六次隨心所欲押注法</h2>
+      <h2 data-lang-en>Six-Round Free Betting Method</h2>
+      <p data-lang-zh>未截圖佐證將無法獲得任何理賠</p>
+      <p data-lang-en>No claim without screenshot evidence</p>
       <div class="divider"></div>
     </div>
     <div class="bet-flow">
       <div class="bet-step">
-        <div class="round">第一局</div>
+        <div class="round" data-lang-zh>第一局</div><div class="round" data-lang-en>Round 1</div>
         <div class="amount">100</div>
         <div class="unit">USDT</div>
       </div>
       <div class="bet-arrow">&rarr;</div>
       <div class="bet-step">
-        <div class="round">第二局</div>
+        <div class="round" data-lang-zh>第二局</div><div class="round" data-lang-en>Round 2</div>
         <div class="amount">200</div>
         <div class="unit">USDT</div>
       </div>
       <div class="bet-arrow">&rarr;</div>
       <div class="bet-step">
-        <div class="round">第三局</div>
+        <div class="round" data-lang-zh>第三局</div><div class="round" data-lang-en>Round 3</div>
         <div class="amount">400</div>
         <div class="unit">USDT</div>
       </div>
       <div class="bet-arrow">&rarr;</div>
       <div class="bet-step">
-        <div class="round">第四局</div>
+        <div class="round" data-lang-zh>第四局</div><div class="round" data-lang-en>Round 4</div>
         <div class="amount">800</div>
         <div class="unit">USDT</div>
       </div>
       <div class="bet-arrow">&rarr;</div>
       <div class="bet-step">
-        <div class="round">第五局</div>
+        <div class="round" data-lang-zh>第五局</div><div class="round" data-lang-en>Round 5</div>
         <div class="amount">1,600</div>
         <div class="unit">USDT</div>
       </div>
       <div class="bet-arrow">&rarr;</div>
       <div class="bet-step">
-        <div class="round">第六局</div>
+        <div class="round" data-lang-zh>第六局</div><div class="round" data-lang-en>Round 6</div>
         <div class="amount">3,200</div>
         <div class="unit">USDT</div>
       </div>
     </div>
     <div class="bet-total">
-      <div class="total-amount">合計：6,300 USDT</div>
-      <div class="claim">全部猜錯 &rarr; 保險理賠</div>
+      <div class="total-amount" data-lang-zh>合計：6,300 USDT</div>
+      <div class="total-amount" data-lang-en>Total: 6,300 USDT</div>
+      <div class="claim" data-lang-zh>全部猜錯 &rarr; 保險理賠</div>
+      <div class="claim" data-lang-en>All wrong &rarr; Insurance claim</div>
     </div>
   </section>
 
@@ -1125,9 +1084,12 @@
   <div class="casino-section">
     <div class="casino-content">
       <div class="casino-text">
-        <h2>多國合法實體娛樂城</h2>
-        <h3>真人百家樂即時下注</h3>
-        <p>連接合法大型娛樂城提供多元的遊戲、完善的顧客服務並致力於維護遊戲公正性，我們提供安全的線上支付平臺由專業人員為玩家提供派彩服務，所有投注均在結果確認後即時派彩，堅持以誠信為根本的快捷便利付款機制，建立公司與客戶之間的信用保證，未來娛樂城仍將持續努力並不斷創新來贏得大眾的喜愛!</p>
+        <h2 data-lang-zh>多國合法實體娛樂城</h2>
+        <h2 data-lang-en>Licensed Casinos Worldwide</h2>
+        <h3 data-lang-zh>真人百家樂即時下注</h3>
+        <h3 data-lang-en>Live Baccarat Real-Time Betting</h3>
+        <p data-lang-zh>連接合法大型娛樂城提供多元的遊戲、完善的顧客服務並致力於維護遊戲公正性，我們提供安全的線上支付平臺由專業人員為玩家提供派彩服務，所有投注均在結果確認後即時派彩，堅持以誠信為根本的快捷便利付款機制，建立公司與客戶之間的信用保證，未來娛樂城仍將持續努力並不斷創新來贏得大眾的喜愛!</p>
+        <p data-lang-en>Connected to licensed large-scale casinos offering diverse games, comprehensive customer service, and committed to maintaining game fairness. We provide a secure online payment platform with professional payout services. All bets are settled instantly upon result confirmation. We uphold an integrity-based fast payment mechanism, building trust between the company and customers. The casino will continue to innovate to win public recognition!</p>
       </div>
       <div class="casino-img">
         <img src="images/image17.jpg" alt="ST Vegas Casino">
@@ -1138,19 +1100,27 @@
   <!-- ===== CLAIM METHOD ===== -->
   <section id="claim">
     <div class="section-title">
-      <h2>保險理賠方法</h2>
+      <h2 data-lang-zh>保險理賠方法</h2>
+      <h2 data-lang-en>Insurance Claim Method</h2>
       <div class="divider"></div>
     </div>
     <div class="claim-box">
-      <div class="warning">未截圖佐證將無法獲得任何理賠</div>
-      <div class="steps">
+      <div class="warning" data-lang-zh>未截圖佐證將無法獲得任何理賠</div>
+      <div class="warning" data-lang-en>No claim can be made without screenshot evidence</div>
+      <div class="steps" data-lang-zh>
         <p>如連輸6關，需提交截圖申請</p>
         <p class="highlight">&#9650; 輸最後一關（第六關）後，馬上截取明細畫面！</p>
         <p>上傳的截圖畫面必須要有：</p>
       </div>
+      <div class="steps" data-lang-en>
+        <p>If you lose all 6 rounds, submit a screenshot application.</p>
+        <p class="highlight">&#9650; After losing the last round (Round 6), take a screenshot of the details immediately!</p>
+        <p>The uploaded screenshot must include:</p>
+      </div>
       <div class="claim-requirements">
         <div class="claim-req-item">
-          <h4>遊戲時間</h4>
+          <h4 data-lang-zh>遊戲時間</h4>
+          <h4 data-lang-en>Game Time</h4>
           <div class="stars">&#9733; &#9733; &#9733;</div>
         </div>
         <div class="claim-req-item">
@@ -1158,24 +1128,26 @@
           <div class="stars">&#9733; &#9733; &#9733;</div>
         </div>
       </div>
-      <p class="danger">否則將無法獲得理賠！！</p>
+      <p class="danger" data-lang-zh>否則將無法獲得理賠！！</p>
+      <p class="danger" data-lang-en>Otherwise no claim will be processed!!</p>
     </div>
   </section>
 
   <!-- ===== REFERRAL ===== -->
   <section id="referral">
     <div class="section-title">
-      <h2>推薦獎金</h2>
+      <h2 data-lang-zh>推薦獎金</h2>
+      <h2 data-lang-en>Referral Bonus</h2>
       <div class="divider"></div>
     </div>
     <div class="referral-grid">
       <div class="referral-card">
-        <h3>組織獎金</h3>
-        <p class="desc">可獲得客戶保費抽成</p>
-        <table>
-          <thead>
-            <tr><th>條件</th><th>保費百分比</th></tr>
-          </thead>
+        <h3 data-lang-zh>組織獎金</h3>
+        <h3 data-lang-en>Team Bonus</h3>
+        <p class="desc" data-lang-zh>可獲得客戶保費抽成</p>
+        <p class="desc" data-lang-en>Earn commission from client premiums</p>
+        <table data-lang-zh>
+          <thead><tr><th>條件</th><th>保費百分比</th></tr></thead>
           <tbody>
             <tr><td>直推1個有效帳戶</td><td>10%</td></tr>
             <tr><td>直推2個有效帳戶</td><td>20%</td></tr>
@@ -1187,14 +1159,36 @@
             <tr><td>直推8個有效帳戶</td><td>80%</td></tr>
           </tbody>
         </table>
+        <table data-lang-en>
+          <thead><tr><th>Condition</th><th>Premium %</th></tr></thead>
+          <tbody>
+            <tr><td>Refer 1 active account</td><td>10%</td></tr>
+            <tr><td>Refer 2 active accounts</td><td>20%</td></tr>
+            <tr><td>Refer 3 active accounts</td><td>30%</td></tr>
+            <tr><td>Refer 4 active accounts</td><td>40%</td></tr>
+            <tr><td>Refer 5 active accounts</td><td>50%</td></tr>
+            <tr><td>Refer 6 active accounts</td><td>60%</td></tr>
+            <tr><td>Refer 7 active accounts</td><td>70%</td></tr>
+            <tr><td>Refer 8 active accounts</td><td>80%</td></tr>
+          </tbody>
+        </table>
       </div>
       <div class="referral-card">
-        <h3>推薦獎金</h3>
-        <p class="desc">可獲得客戶入金抽成</p>
-        <table>
-          <thead>
-            <tr><th>星級專案保單</th><th>入金百分比</th></tr>
-          </thead>
+        <h3 data-lang-zh>推薦獎金</h3>
+        <h3 data-lang-en>Referral Bonus</h3>
+        <p class="desc" data-lang-zh>可獲得客戶入金抽成</p>
+        <p class="desc" data-lang-en>Earn commission from client deposits</p>
+        <table data-lang-zh>
+          <thead><tr><th>星級專案保單</th><th>入金百分比</th></tr></thead>
+          <tbody>
+            <tr><td>630</td><td>1%</td></tr>
+            <tr><td>3,150</td><td>5%</td></tr>
+            <tr><td>6,300</td><td>10%</td></tr>
+            <tr><td>12,600</td><td>15%</td></tr>
+          </tbody>
+        </table>
+        <table data-lang-en>
+          <thead><tr><th>Star Plan</th><th>Deposit %</th></tr></thead>
           <tbody>
             <tr><td>630</td><td>1%</td></tr>
             <tr><td>3,150</td><td>5%</td></tr>
@@ -1209,26 +1203,35 @@
   <!-- ===== EXAMPLE ===== -->
   <section id="example">
     <div class="section-title">
-      <h2>收益實例</h2>
+      <h2 data-lang-zh>收益實例</h2>
+      <h2 data-lang-en>Profit Example</h2>
       <div class="divider"></div>
     </div>
     <div class="example-section">
-      <div class="example-scenario">
+      <div class="example-scenario" data-lang-zh>
         若我加入 <strong>6,300</strong> 方案，閉鎖30次任務，並推薦3個 <strong>12,600</strong> 方案
+      </div>
+      <div class="example-scenario" data-lang-en>
+        If I join the <strong>6,300</strong> plan, complete 30 tasks, and refer 3 people to the <strong>12,600</strong> plan
       </div>
       <div class="example-grid">
         <div class="example-card">
-          <h4>推薦獎金</h4>
-          <p class="formula">12,600 &times; 10% &times; 3個</p>
+          <h4 data-lang-zh>推薦獎金</h4>
+          <h4 data-lang-en>Referral Bonus</h4>
+          <p class="formula">12,600 &times; 10% &times; 3</p>
           <div class="result">= 3,780 U</div>
-          <p class="note">（只拿一次）</p>
+          <p class="note" data-lang-zh>（只拿一次）</p>
+          <p class="note" data-lang-en>(One-time payment)</p>
         </div>
         <div class="example-card">
-          <h4>組織獎金</h4>
-          <p class="formula">直推3個有效帳戶，可拿保費的30%</p>
-          <p class="formula">100 &times; 30% &times; 3個 = 90 U</p>
-          <div class="result">= 90 U / 日</div>
-          <p class="note">（每日領取）</p>
+          <h4 data-lang-zh>組織獎金</h4>
+          <h4 data-lang-en>Team Bonus</h4>
+          <p class="formula" data-lang-zh>直推3個有效帳戶，可拿保費的30%</p>
+          <p class="formula" data-lang-en>3 active referrals = 30% of premium</p>
+          <p class="formula">100 &times; 30% &times; 3 = 90 U</p>
+          <div class="result">= 90 U / <span data-lang-zh>日</span><span data-lang-en>day</span></div>
+          <p class="note" data-lang-zh>（每日領取）</p>
+          <p class="note" data-lang-en>(Daily payment)</p>
         </div>
       </div>
     </div>
@@ -1239,9 +1242,30 @@
     <img src="https://www.st-entertainment.com/assets/img/logo.png" alt="ST Vegas Logo" class="footer-logo">
     <h3>ST VEGAS</h3>
     <p class="footer-sub">HOTEL & CASINO</p>
-    <p class="footer-tagline">值得信賴的好夥伴</p>
+    <p class="footer-tagline" data-lang-zh>值得信賴的好夥伴</p>
+    <p class="footer-tagline" data-lang-en>Your Trusted Partner</p>
     <p class="copyright">&copy; 2025 ST Vegas Hotel & Casino. All Rights Reserved.</p>
   </footer>
+
+  <!-- ===== LANGUAGE SWITCH SCRIPT ===== -->
+  <script>
+    function setLang(lang) {
+      if (lang === 'en') {
+        document.body.classList.add('en');
+        document.documentElement.lang = 'en';
+      } else {
+        document.body.classList.remove('en');
+        document.documentElement.lang = 'zh-Hant';
+      }
+      document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      localStorage.setItem('lang', lang);
+    }
+
+    // Restore saved language preference
+    const saved = localStorage.getItem('lang');
+    if (saved) setLang(saved);
+  </script>
 
 </body>
 </html>
